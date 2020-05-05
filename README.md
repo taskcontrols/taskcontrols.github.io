@@ -13,3 +13,6 @@ Project Link
 Web Link
 [https://taskcontrols.github.io/](https://taskcontrols.github.io/)
 
+
+[Be a Patreon](https://www.patreon.com/taskcontrols)
+
