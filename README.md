@@ -3,10 +3,12 @@ Control, Create, Run named workflows tasks with before/after middlewares (auth, 
 
 Install:
 
-pip3 install taskcontrol 
+`pip3 install taskcontrol`
+
 
 Project Link
 [https://pypi.org/project/taskcontrol/](https://pypi.org/project/taskcontrol/)
+
 
 Web Link
 [https://taskcontrols.github.io/](https://taskcontrols.github.io/)
