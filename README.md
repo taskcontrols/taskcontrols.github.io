@@ -1,7 +1,8 @@
 # taskcontrols.github.io
 Control, Create, Run named workflows tasks with before/after middlewares (auth, data fetch/save, logging, cleanup, etc) with plugins support
 
-Install
+Install:
+
 pip3 install taskcontrol 
 
 Project Link
