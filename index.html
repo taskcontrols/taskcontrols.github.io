@@ -60,12 +60,32 @@
             respective before or after middlewares. taskcontrols also provides (in-development) plugins, concurrency,
             actions/events, and webhooks support</p>
         </div>
+
         <div class="uk-margin-medium-top animate uk-invisible" data-uk-margin
           data-uk-scrollspy-class="uk-animation-fade uk-invisible">
           <a class="uk-button uk-button-default uk-button-large uk-width-2-3 uk-width-auto@s" data-uk-icon="arrow-right"
             title="Learn More" href="features.html">LEARN MORE</a>
           <a class="uk-button uk-button-primary uk-button-large uk-width-2-3 uk-width-auto@s" data-uk-icon="check"
             title="Github Repo" href="https://www.github.com/taskcontrols/py-taskcontrols">GITHUB REPO</a>
+        </div>
+        <!-- https://flatuicolors.com/palette/ca -->
+        <div class="uk-width-medium-1-2 uk-container-center"
+          style="margin-left:38%; text-align: left;font-weight: bold;font-size: 0.6em;color:white !important;">
+          <br /><br />
+          <span style="color: #2e86de">from </span>
+          <span style="color: #fff">taskcontrol.workflow</span>
+          <span style="color: #2e86de"> import </span>
+          <span style="color: #fff">workflow, Tasks</span><br /><br />
+          <span style="color: #fff">sparrow</span> =
+          <span style="color: #ff6b6b">Tasks</span> ( )<br />
+          <span style="color: #ff6b6b">@workflow</span>
+          (<span style="color:#ff9f43"> name</span> = " task ",&nbsp;&nbsp;
+          <span style="color:#ff9f43">task_instance</span> =
+          <span style="color: #fff">sparrow )<br />def taskone : print( " Task " )</span><br /><br />
+
+          <span style="color: #fff">sparrow.</span>run<span style="color:#fff">
+           (</span> <span style="color:#ff9f43">tasks</span><span style="color:#fff"> = [ " task " ]</span> <span
+            style="color:#fff">)</span><br />
         </div>
       </div>
       <!-- /TEXT -->
