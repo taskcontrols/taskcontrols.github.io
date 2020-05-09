@@ -11,14 +11,27 @@
 	<link rel="stylesheet" type="text/css" href="css/dashboard.css">
 	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 	<script>
-		fetch('http://example.com/movies.json')
-			.then(
-				document.getElementById('markdown-content').innerHTML = marked(data)
-			)
-			.catch((error) => {
-				// console.error('Error:', error);
-				document.getElementById('markdown-content').innerHTML = marked(error)
-			});
+		function getMarkdown() {
+			var url = "";
+			if (!!window.location.hash) {
+				url = window.location.hash;
+			} else if (!!window.location.href) {
+				url = window.location.href.split("#");
+				url = url[1];
+			}
+			url = "https://github.com/taskcontrols/py-taskcontrol/blob/master/docs/" + url + ".md"
+			console.log(url)
+			fetch(url)
+				.then(
+					(data) => {
+						console.log(data);
+						document.getElementById('markdown-content').innerHTML = marked(data)
+					})
+				.catch((error) => {
+					console.log(error)
+					document.getElementById('markdown-content').innerHTML = marked(error)
+				});
+		}
 	</script>
 </head>
 
@@ -94,7 +107,6 @@
 			<!-- <h5 class="custom-logo">ACTIONS</h5> -->
 			<!-- <img class="custom-logo" src="img/dashboard-logo.svg" alt=""> -->
 		</div>
-
 
 		<div class="left-nav-wrap">
 			<ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
@@ -220,7 +232,7 @@
 	<!-- /LEFT BAR -->
 	<!-- CONTENT -->
 	<div id="content" data-uk-height-viewport="expand: true">
-		<div class="uk-container uk-container-expand" id="markdown-content">
+		<div class="uk-container uk-container-expand" id="markdown-content" onload="getMarkdown()">
 
 		</div>
 	</div>
