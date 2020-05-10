@@ -17,6 +17,12 @@
     .uk-logo img {
       height: 28px;
     }
+
+    @media only screen and (max-width: 600px) {
+      body {
+        max-width: 100% !important;
+      }
+    }
   </style>
 </head>
 
@@ -50,19 +56,19 @@
       </div>
       <!-- /NAV -->
       <!-- TEXT -->
-      
+
       <div class="uk-container uk-container-small uk-flex-auto uk-text-center"
         data-uk-scrollspy="target: > .animate; cls: uk-animation-slide-bottom-small uk-invisible; delay: 300">
         <br><br>
         <h1 class="uk-heading-primary animate uk-invisible" style="font-weight: 700;">
           Simple, and Lightweight
         </h1>
-        
+
         <div class="uk-width-4-5@m uk-margin-auto animate uk-invisible">
           <p class="lead">Create named shared / isolated instance workflow task controls, and run them with their
             respective before or after middlewares. taskcontrols also provides ( being developed ) plugins, concurrency,
             actions / events, and webhooks support</p>
-            
+
         </div>
 
         <div class="uk-margin-medium-top animate uk-invisible" data-uk-margin
