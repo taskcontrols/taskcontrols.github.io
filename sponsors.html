@@ -1,8 +1,9 @@
 <strong>SPONSORS</strong>
 
 <script>
-    setInterval(function(){
-        document.write("<strong>Something went wrong, redirecting to home page</strong>")
+    setImmediate(function(){
+        document.write("<strong>Something went wrong, redirecting to home page</strong>");
+        window.location.href = "index.html"; 
     }, 10000)
 
 </script>
