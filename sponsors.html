@@ -1,12 +1,72 @@
-<head>
-    <!-- <meta http-equiv="Refresh" content="3"; url="index.html" /> -->
-</head>
-<strong>SPONSORS</strong>
-<strong>Something went wrong, redirecting to home page</strong>
+<body>
+    <div
+        class="uk-light wrap uk-background-norepeat uk-background-cover uk-background-center-center uk-cover-container uk-background-secondary">
 
-<script>
-    setInterval(function(){
-        window.location.href = "index.html"; 
-    }, 2000)
-</script>
+        <div class="uk-flex uk-flex-center uk-flex-middle uk-height-viewport uk-position-z-index uk-position-relative"
+            data-uk-height-viewport="min-height: 400" style="background-color: #222f3e;">
+            <!-- <img data-srcset="img/logo.jpg" sizes="100vw" data-src="img/logo.jpg" alt="" data-uk-cover data-uk-img> -->
+            <!-- NAV -->
+            <div class="uk-position-top">
+                <div class="uk-container uk-container-small">
+                    <nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
+                        <div class="uk-navbar-left">
+                            <div class="uk-navbar-item">
+                                <a class="uk-logo" href="https://taskcontrols.github.io/">taskcontrols</a>
+                            </div>
+                        </div>
+                        <div class="uk-navbar-right">
+                            <ul class="uk-navbar-nav">
+                                <li class="uk-active uk-visible@m"><a data-uk-icon="home" href="index.html"></a></li>
+                                <li class="uk-visible@s"><a href="features.html">Features</a></li>
+                                <li class="uk-visible@s"><a href="documentation.html">Documentation</a></li>
+                                <li class="uk-visible@s"><a href="sponsors.html">Sponsors</a></li>
+                                <!-- <li><a class="uk-navbar-toggle" data-uk-toggle data-uk-navbar-toggle-icon href="#offcanvas-nav"></a></li> -->
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!-- /NAV -->
+            <!-- TEXT -->
 
+            <div class="uk-container uk-container-small uk-flex-auto uk-text-center"
+                data-uk-scrollspy="target: > .animate; cls: uk-animation-slide-bottom-small uk-invisible; delay: 300">
+                <br><br>
+
+
+                <div class="uk-width-4-5@m uk-margin-auto animate uk-invisible">
+                    <p class="lead">
+
+                        <strong>SPONSORS</strong>
+                        <strong>Something went wrong, redirecting to home page</strong>
+
+                        <script>
+                            setInterval(function () {
+                                window.location.href = "index.html";
+                            }, 2000)
+                        </script>
+                    </p>
+                </div>
+
+                <div class="uk-margin-medium-top animate uk-invisible" data-uk-margin
+                    data-uk-scrollspy-class="uk-animation-fade uk-invisible">
+                    <a class="uk-button uk-button-default uk-button-large uk-width-2-3 uk-width-auto@s"
+                        data-uk-icon="arrow-right" title="Learn More" href="documentation.html">LEARN MORE</a>
+                    <a class="uk-button uk-button-primary uk-button-large uk-width-2-3 uk-width-auto@s"
+                        data-uk-icon="check" title="Github Repo"
+                        href="https://www.github.com/taskcontrols/py-taskcontrols">GITHUB REPO</a>
+                </div>
+            </div>
+            <!-- /TEXT -->
+            <!-- FOOT -->
+            <div class="uk-position-bottom-center uk-position-small">
+                <span class="uk-text-small uk-text-center">© 2020 - till package works |
+                    <a href="http://github.com/taskcontrols" title="Visit taskcontrols"></a>
+                    Build with <a href="http://github.com/taskcontrols">taskcontrols</a></span>
+            </div>
+            <!-- /FOOT -->
+        </div>
+    </div>
+</body>
+
+</html>
