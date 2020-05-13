@@ -7,13 +7,10 @@
 	<title>taskcontrol</title>
 	<link rel="icon" href="img/logo.jpg">
 	<!-- CSS FILES -->
-
 	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/uikit@latest/dist/css/uikit.min.css">
 	<link rel="stylesheet" type="text/css" href="css/dashboard.css">
-	
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 	<script>
-
 		window.addEventListener('locationchange', getMarkdown, false)
 		window.addEventListener('hashchange', getMarkdown, false)
 		function getMarkdown() {
@@ -27,10 +24,11 @@
 				url = "users/getting-started"
 			}
 			url = "https://raw.githubusercontent.com/taskcontrols/py-taskcontrol/master/docs/" + url + ".md"
+			// console.log("url",url)
 			fetch(url)
 				.then(
-					function (data) {
-						console.log(data);
+					(data) => {
+						// console.log(data);
 						data.text().then((d) => {
 							document.getElementById('markdown-content').innerHTML = marked(d)
 						})
@@ -41,16 +39,39 @@
 				});
 		}
 	</script>
+	<style>
+		@media only screen and (max-width: 640px) {
+			nav :root {
+				--uk-breakpoint-xs: 320px !important;
+				--uk-breakpoint-s: 640px !important;
+				--uk-breakpoint-m: 960px !important;
+				--uk-breakpoint-l: 1200px !important;
+				--uk-breakpoint-xl: 1600px !important;
+			}
 
+			body,
+			#offcanvas-nav,
+			nav {
+				max-width: 640px !important;
+			}
+		}
+
+		@media only screen and (max-width: 320px) {
+
+			#offcanvas-nav,
+			nav {
+				max-width: 320px !important;
+			}
+		}
+	</style>
 </head>
 
 <body onhashchange="getMarkdown();" onload="getMarkdown();">
 	<!--HEADER-->
-	<header id="top-head" class="uk-position-fixed" style="width:100%;max-width:100%;">
+	<header id="top-head" class="uk-position-fixed">
 		<div class="uk-container uk-container-expand uk-background-primary"
 			style="background-color: #222f3e !important;">
-			<nav class="uk-navbar uk-light" style="width:100%;max-width:100%;"
-				data-uk-navbar="mode:click; duration: 250">
+			<nav class="uk-navbar uk-light" data-uk-navbar="mode:click; duration: 250">
 				<div class="uk-navbar-left">
 					<div class="uk-navbar-item uk-hidden@m">
 						<a class="uk-logo" href="#users/getting-started">
@@ -242,8 +263,6 @@
 	<!-- /LEFT BAR -->
 	<!-- CONTENT -->
 	<div id="content" data-uk-height-viewport="expand: true">
-		<!-- <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> -->
-
 		<div class="uk-container uk-container-expand" id="markdown-content" onload="getMarkdown()">
 
 		</div>
