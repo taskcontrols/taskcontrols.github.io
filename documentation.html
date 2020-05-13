@@ -40,16 +40,24 @@
 		}
 	</script>
 	<style>
-		@media only screen and (max-width: 600px) {
+		@media only screen and (max-width: 640px) {
+			nav :root {
+				--uk-breakpoint-xs: 320px !important;
+				--uk-breakpoint-s: 640px !important;
+				--uk-breakpoint-m: 960px !important;
+				--uk-breakpoint-l: 1200px !important;
+				--uk-breakpoint-xl: 1600px !important;
+			}
+
 			body,
 			#offcanvas-nav,
 			nav {
-				max-width: 600px !important;
+				max-width: 640px !important;
 			}
 		}
 
 		@media only screen and (max-width: 320px) {
-			body,
+
 			#offcanvas-nav,
 			nav {
 				max-width: 320px !important;
