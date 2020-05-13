@@ -228,15 +228,14 @@
 				if (url === undefined) {
 					url = "users/getting-started"
 				}
-				url = "https://raw.githubusercontent.com/taskcontrols/py-taskcontrol/master/docs/" + url + ".md"
+				url = "https://raw.githubusercontent.com/taskcontrols/py-taskcontrol/master/docs/" + url + ".html"
 				// console.log("url",url)
 				fetch(url)
 					.then(
 						(data) => {
-							// console.log(data);
+							console.log(data);
 							data.text().then((d) => {
-								document.getElementById('markdown-content').innerHTML = "<zero-md><template><xmp>" + d + "</xmp></template></<zero-md>"
-								
+								document.getElementById('markdown-content').innerHTML = d
 							})
 						})
 					.catch(error => {
