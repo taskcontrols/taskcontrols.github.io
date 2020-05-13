@@ -11,6 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/uikit@latest/dist/css/uikit.min.css">
 	<link rel="stylesheet" type="text/css" href="css/dashboard.css">
 	<script>
+
 		window.addEventListener('locationchange', getMarkdown, false)
 		window.addEventListener('hashchange', getMarkdown, false)
 		function getMarkdown() {
@@ -23,6 +24,7 @@
 			if (url === undefined) {
 				url = "users/getting-started"
 			}
+			
 			url = "https://raw.githubusercontent.com/taskcontrols/py-taskcontrol/master/docs/" + url + ".html"
 			// console.log("url",url)
 			fetch(url)
@@ -30,7 +32,9 @@
 					(data) => {
 						console.log(data);
 						data.text().then((d) => {
-							document.getElementById('markdown-content').innerHTML = d
+							var converter = new showdown.Converter();
+							var html = converter.makeHtml(d);
+							document.getElementById('markdown-content').innerHTML = html
 						})
 					})
 				.catch(error => {
@@ -242,7 +246,7 @@
 	<!-- CONTENT -->
 	<div id="content" data-uk-height-viewport="expand: true">
 		<!-- <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> -->
-
+		<script type="text/javascript" src="https://rawgit.com/showdownjs/showdown/develop/dist/showdown.min.js"></script>
 		<div class="uk-container uk-container-expand" id="markdown-content" onload="getMarkdown()">
 
 		</div>
