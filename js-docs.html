@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>taskcontrol</title>
+	<link rel="icon" href="img/logo.jpg">
+	<!-- CSS FILES -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/uikit@latest/dist/css/uikit.min.css">
+	<link rel="stylesheet" type="text/css" href="css/dashboard.css">
+	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+	<script>
+		window.addEventListener('locationchange', getMarkdown, false)
+		window.addEventListener('hashchange', getMarkdown, false)
+		function getMarkdown() {
+			// let pyt = "https://raw.githubusercontent.com/taskcontrols/py-taskcontrol/"
+			let jst = "https://raw.githubusercontent.com/taskcontrols/js-taskcontrol/"
+			// console.log("url ", window.location.hash, window.location, window.location.url)
+			if (!!window.location.hash) {
+				url = window.location.hash.split("#")[1];
+			} else if (!!window.location) {
+				url = window.location.toString().split("#")[1];
+			}
+			if (url === undefined) {
+				url = "users/getting-started"
+			}
+			url = jst + "master/docs/" + url + ".md"
+			// console.log("url",url)
+			fetch(url)
+				.then(
+					(data) => {
+						// console.log(data);
+						data.text().then((d) => {
+							document.getElementById('markdown-content').innerHTML = marked(d)
+						})
+					})
+				.catch(error => {
+					// console.log(error)
+					document.getElementById('markdown-content').innerHTML = error
+				});
+		}
+	</script>
+	<style>
+		@media only screen and (max-width: 640px) {
+			nav :root {
+				--uk-breakpoint-xs: 320px !important;
+				--uk-breakpoint-s: 640px !important;
+				--uk-breakpoint-m: 960px !important;
+				--uk-breakpoint-l: 1200px !important;
+				--uk-breakpoint-xl: 1600px !important;
+			}
+
+			body,
+			#offcanvas-nav,
+			nav {
+				max-width: 640px !important;
+			}
+		}
+
+		@media only screen and (max-width: 320px) {
+
+			#offcanvas-nav,
+			nav {
+				max-width: 320px !important;
+			}
+		}
+	</style>
+</head>
+
+<body onhashchange="getMarkdown();" onload="getMarkdown();">
+	<!--HEADER-->
+	<header id="top-head" class="uk-position-fixed">
+		<div class="uk-container uk-container-expand uk-background-primary"
+			style="background-color: #222f3e !important;">
+			<nav class="uk-navbar uk-light" data-uk-navbar="mode:click; duration: 250">
+				<div class="uk-navbar-left">
+					<div class="uk-navbar-item uk-hidden@m">
+						<a class="uk-logo" href="#users/getting-started">
+							<img class="custom-logo" src="img/dashboard-logo-white.svg" alt="">
+						</a>
+					</div>
+					<ul class="uk-navbar-nav uk-visible@m">
+						<li>
+							<a href="index.html" class="uk-icon-link" data-uk-icon="icon: home" title="Home Page"
+								data-uk-tooltip></a>
+						</li>
+						<li><a href="features.html">Features</a></li>
+						<li>
+							<a href="#">Documentation <span data-uk-icon="icon: triangle-down"></span></a>
+							<div class="uk-navbar-dropdown">
+								<ul class="uk-nav uk-navbar-dropdown-nav">
+									<li class="uk-nav-header">LANGUAGES</li>
+									<li><a href="#"><span data-uk-icon="icon: check" title="Github Repository"
+												data-uk-tooltip></span> Python</a></li>
+									<li><a href="#"><span data-uk-icon="icon: close"></span> Javascript</a></li>
+									<!-- <li><a href="#"><span data-uk-icon="icon: settings"></span> Configuration</a></li> -->
+									<!-- <li class="uk-nav-divider"></li>
+									<li class="uk-nav-header">ARCHITECTURE</li>
+									<li><a href="#"><span data-uk-icon="icon: image"></span> Your Data</a></li>
+									<li class="uk-nav-divider"></li>
+									<li class="uk-nav-header">PLUGINS</li>
+									<li><a href="#"><span data-uk-icon="icon: sign-out"></span> Logout</a></li> -->
+								</ul>
+							</div>
+						</li>
+					</ul>
+					<div class="uk-navbar-item uk-visible@s">
+						<form action="dashboard.html" class="uk-search uk-search-default">
+							<span data-uk-search-icon></span>
+							<input class="uk-search-input search-field" type="search" placeholder="Search">
+						</form>
+					</div>
+				</div>
+				<div class="uk-navbar-right">
+					<ul class="uk-navbar-nav">
+						<!-- <li><a href="#" data-uk-icon="icon:user" title="Your profile" data-uk-tooltip></a></li>
+						<li><a href="#" data-uk-icon="icon: settings" title="Settings" data-uk-tooltip></a></li> -->
+						<li class="uk-visible@m"><a class="uk-icon-link" title="Feature Requests"
+								data-uk-tooltip data-uk-icon="home" href="index.html"></a>
+						</li>
+						<li>
+							<a href="index.html" class="uk-icon-link" data-uk-icon="icon: plus" title="Feature Requests"
+								data-uk-tooltip></a>
+						</li>
+						<li>
+							<a href="sponsor.html" class="uk-icon-link" data-uk-icon="icon: cart"
+								title="Sponsor Project" data-uk-tooltip></a>
+						</li>
+						<li><a href="https://github.com/taskcontrols/py-taskcontrol" data-uk-icon="icon:  github"
+								title="Github Repository" data-uk-tooltip></a></li>
+						<li>
+							<a class="uk-navbar-toggle" data-uk-toggle data-uk-navbar-toggle-icon href="#offcanvas-nav"
+								title="Sidebar Menu" data-uk-tooltip></a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<!--/HEADER-->
+	<!-- LEFT BAR -->
+	<aside id="left-col" class="uk-light uk-visible@m">
+		<div class="left-logo uk-flex uk-flex-middle">
+			<span class="custom-logo" style="margin-top: -15px; color: #fff;">
+				<strong>TASKCONTROLS</strong>
+			</span>
+			<!-- <h5 class="custom-logo">ACTIONS</h5> -->
+			<!-- <img class="custom-logo" src="img/dashboard-logo.svg" alt=""> -->
+		</div>
+
+		<div class="left-nav-wrap">
+			<ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
+				<li class="uk-nav-header">Python Version 1.2.6</li>
+				<li>
+					<a href="#users/getting-started">
+						<span data-uk-icon="icon: album" class="uk-margin-small-right"></span>
+						Getting Started
+					</a>
+				</li>
+				<li>
+					<a href="#users/installation">
+						<span data-uk-icon="icon: album" class="uk-margin-small-right"></span>
+						Installation, Setup
+					</a>
+				</li>
+				<li class="uk-parent"><a href="#"><span data-uk-icon="icon: thumbnails"
+							class="uk-margin-small-right"></span>Usage</a>
+					<ul class="uk-nav-sub">
+						<li>
+							<a title="Article" href="#users/workflow">
+								Workflow Decorator
+							</a>
+						</li>
+						<li><a title="Album" href="#users/workflow">Tasks</a></li>
+						<li><a title="Cover" href="#users/workflow">Shared Tasks</a></li>
+						<li><a title="Cards" href="#users/plugins">Plugins</a></li>
+						<li><a title="Cards" href="#users/hooks">Hooks</a></li>
+						<li><a title="Cards" href="#users/concurrency">Concurrency</a></li>
+						<li><a title="Cards" href="#users/logger">Logger</a></li>
+						<li><a title="Cards" href="#users/authentication">Authentication</a></li>
+					</ul>
+				</li>
+				<!-- <li class="uk-parent"><a href="#j"><span data-uk-icon="icon: thumbnails"
+							class="uk-margin-small-right"></span>APIs</a>
+					<ul class="uk-nav-sub">
+						<li>
+							<a title="Article" href="index.html">
+								Workflow Decorator
+							</a>
+						</li>
+						<li><a title="Album" href="index.html">Tasks</a></li>
+						<li><a title="Cover" href="index.html">Plugins</a></li>
+						<li><a title="Cards" href="index.html">Hooks</a></li>
+						<li>
+							<a title="News Blog" href="index.html">
+								Concurrency
+							</a>
+						</li>
+						<li><a title="Price" href="index.html">Logger</a></li>
+						<li><a title="Login" href="index.html">Authentication</a></li>
+					</ul>
+				</li> -->
+				<!-- <li class="uk-parent"><a href="#"><span data-uk-icon="icon: thumbnails"
+							class="uk-margin-small-right"></span>Demos</a>
+					<ul class="uk-nav-sub">
+						<li><a title="Article" href="index.html">Workflow
+								Decorator</a></li>
+						<li><a title="Album" href="index.html">Tasks</a></li>
+						<li><a title="Cover" href="index.html">Plugins</a></li>
+						<li><a title="Cards" href="index.html">Hooks</a></li>
+						<li>
+							<a title="News Blog" href="index.html">
+								Concurrency
+							</a>
+						</li>
+						<li><a title="Price" href="index.html">Logger</a></li>
+						<li><a title="Login" href="index.html">Authentication</a>
+						</li>
+					</ul>
+				</li> -->
+				<li><a href="support.html"><span data-uk-icon="icon: album"
+							class="uk-margin-small-right"></span>Support</a></li>
+				<!-- <li>
+					<a href="#">
+						<span data-uk-icon="icon: album" class="uk-margin-small-right"></span>
+						Plan
+					</a>
+				</li> -->
+				<!-- <li>
+					<a href="#"><span data-uk-icon="icon: album" class="uk-margin-small-right"></span>
+						Community
+					</a>
+				</li> -->
+				<li class="uk-parent">
+					<a href="#">
+						<span data-uk-icon="icon: thumbnails" class="uk-margin-small-right"></span>Sponsor
+					</a>
+					<ul class="uk-nav-sub">
+						<li><a href="sponsors.html">Patreon</a></li>
+						<li><a href="sponsors.html">Paypal</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+		<div class="bar-bottom">
+			<ul class="uk-subnav uk-flex uk-flex-center uk-child-width-1-5" data-uk-grid>
+				<li>
+					<a href="sponsors.html" class="uk-icon-link" data-uk-icon="icon: cart" title="Become a Sponsor"
+						data-uk-tooltip></a>
+				</li>
+				<li>
+					<a href="https://twitter.com/taskcontrols" class="uk-icon-link" data-uk-icon="icon: twitter"
+						title="Twitter: @taskcontrols" data-uk-tooltip></a>
+				</li>
+				<li>
+					<a href="#" class="uk-icon-link" data-uk-icon="icon: mail"
+						title="Contact Us: taskcontrols@gmail.com" data-uk-tooltip></a>
+				</li>
+				<li>
+					<a href="#" class="uk-icon-link" data-uk-tooltip="Github Repository" title="Github Repository"
+						data-uk-icon="icon: github-alt"></a>
+				</li>
+			</ul>
+		</div>
+	</aside>
+	<!-- /LEFT BAR -->
+	<!-- CONTENT -->
+	<div id="content" data-uk-height-viewport="expand: true">
+		<div class="uk-container uk-container-expand" id="markdown-content" onload="getMarkdown()">
+
+		</div>
+		<br>
+		<br>
+	</div>
+	<!-- /CONTENT -->
+	<!-- OFFCANVAS -->
+	<div id="offcanvas-nav" data-uk-offcanvas="flip: true; overlay: true">
+		<div class="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-slide">
+			<button class="uk-offcanvas-close uk-close uk-icon" type="button" data-uk-close></button>
+			<ul class="uk-nav uk-nav-default">
+				<li class="uk-active"><a href="#">TASKCONTROLS</a></li>
+				<li>
+					<a href="#users/getting-started">
+						<span data-uk-icon="icon: album" class="uk-margin-small-right"></span>
+						Getting Started
+					</a>
+				</li>
+				<li>
+					<a href="#users/installation">
+						<span data-uk-icon="icon: album" class="uk-margin-small-right"></span>
+						Installation, Setup
+					</a>
+				</li>
+				<li class="uk-parent"><a href="#"><span data-uk-icon="icon: thumbnails"
+							class="uk-margin-small-right"></span>Usage</a>
+					<ul class="uk-nav-sub">
+						<li>
+							<a title="Article" href="#users/workflow">
+								Workflow Decorator
+							</a>
+						</li>
+						<li><a title="Album" href="#users/workflow">Tasks</a></li>
+						<li><a title="Cover" href="#users/workflow">Shared Tasks</a></li>
+						<li><a title="Cards" href="#users/plugins">Plugins</a></li>
+						<li><a title="Cards" href="#users/hooks">Hooks</a></li>
+						<li><a title="Cards" href="#users/concurrency">Concurrency</a></li>
+						<li><a title="Cards" href="#users/logger">Logger</a></li>
+						<li><a title="Cards" href="#users/authentication">Authentication</a></li>
+					</ul>
+				</li>
+				<!-- <li class="uk-parent"><a href="#j"><span data-uk-icon="icon: thumbnails"
+							class="uk-margin-small-right"></span>APIs</a>
+					<ul class="uk-nav-sub">
+						<li>
+							<a title="Article" href="index.html">
+								Workflow Decorator
+							</a>
+						</li>
+						<li><a title="Album" href="index.html">Tasks</a></li>
+						<li><a title="Cover" href="index.html">Plugins</a></li>
+						<li><a title="Cards" href="index.html">Hooks</a></li>
+						<li>
+							<a title="News Blog" href="index.html">
+								Concurrency
+							</a>
+						</li>
+						<li><a title="Price" href="index.html">Logger</a></li>
+						<li><a title="Login" href="index.html">Authentication</a></li>
+					</ul>
+				</li> -->
+				<!-- <li class="uk-parent"><a href="#"><span data-uk-icon="icon: thumbnails"
+							class="uk-margin-small-right"></span>Demos</a>
+					<ul class="uk-nav-sub">
+						<li><a title="Article" href="index.html">Workflow
+								Decorator</a></li>
+						<li><a title="Album" href="index.html">Tasks</a></li>
+						<li><a title="Cover" href="index.html">Plugins</a></li>
+						<li><a title="Cards" href="index.html">Hooks</a></li>
+						<li>
+							<a title="News Blog" href="index.html">
+								Concurrency
+							</a>
+						</li>
+						<li><a title="Price" href="index.html">Logger</a></li>
+						<li><a title="Login" href="index.html">Authentication</a>
+						</li>
+					</ul>
+				</li> -->
+				<li><a href="support.html"><span data-uk-icon="icon: album"
+							class="uk-margin-small-right"></span>Support</a></li>
+				<!-- <li>
+			<a href="#">
+				<span data-uk-icon="icon: album" class="uk-margin-small-right"></span>
+				Plan
+			</a>
+		</li> -->
+				<!-- <li>
+			<a href="#"><span data-uk-icon="icon: album" class="uk-margin-small-right"></span>
+				Community
+			</a>
+		</li> -->
+				<li class="uk-parent">
+					<a href="#">
+						<span data-uk-icon="icon: thumbnails" class="uk-margin-small-right"></span>Sponsor
+					</a>
+					<ul class="uk-nav-sub">
+						<li><a href="sponsors.html">Patreon</a></li>
+						<li><a href="sponsors.html">Paypal</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /OFFCANVAS -->
+
+	<!-- JS FILES -->
+	<script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
+
+</body>
+
+</html>
