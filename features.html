@@ -40,7 +40,17 @@
               <ul class="uk-navbar-nav">
                 <li class="uk-active uk-visible@m"><a data-uk-icon="home" href="index.html"></a></li>
                 <li class="uk-visible@s"><a href="features.html">Features</a></li>
-                <li class="uk-visible@s"><a href="py-docs.html">Documentation</a></li>
+                <!-- <li class="uk-visible@s"><a href="py-docs.html">Documentation</a></li> -->
+                <li>
+                  <a href="#" data-uk-icon="chevron-down">Documentation</a>
+                  <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                      <li><a href="py-docs.html" data-uk-icon="icon: check">Python</a></li>
+                      <li><a href="js-docs.html" data-uk-icon="icon: close">Javascript</a></li>
+                      <li><a href="cli-docs.html" data-uk-icon="icon: close">CLI</a></li>
+                    </ul>
+                  </div>
+                </li>
                 <li class="uk-visible@s"><a href="sponsors.html">Sponsors</a></li>
                 <!-- <li><a class="uk-navbar-toggle" data-uk-toggle data-uk-navbar-toggle-icon href="#offcanvas-nav"></a></li> -->
               </ul>
@@ -57,16 +67,16 @@
 
         <div class="uk-width-4-5@m uk-margin-auto  ">
           <p class="lead" style="color: #fff;">
-              FEATURES...
-              Something went wrong, redirecting to home page
+            FEATURES...
+            Something went wrong, redirecting to home page
           </p>
           <script>
-              setInterval(function () {
+            setInterval(function () {
 
-                  window.location.href = "index.html";
-              }, 2000)
+              window.location.href = "index.html";
+            }, 2000)
           </script>
-      </div>
+        </div>
 
       </div>
       <!-- /TEXT -->
