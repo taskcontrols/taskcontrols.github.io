@@ -8,9 +8,12 @@ Install:
 `npm install **TBD**`
 
 
-Project Link
+Python Project Link
 [https://pypi.org/project/taskcontrol/](https://pypi.org/project/taskcontrol/)
 
+
+Nodejs Project Link
+[https://github.com/taskcontrols/js-taskcontrol](https://github.com/taskcontrols/js-taskcontrol)
 
 Web Link
 [https://taskcontrols.github.io/](https://taskcontrols.github.io/)
