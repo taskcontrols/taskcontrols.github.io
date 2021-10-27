@@ -5,6 +5,8 @@ Install:
 
 `pip3 install taskcontrol`
 
+`npm install **TBD**`
+
 
 Project Link
 [https://pypi.org/project/taskcontrol/](https://pypi.org/project/taskcontrol/)
