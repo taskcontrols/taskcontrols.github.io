@@ -13,7 +13,7 @@
 	<script>
 		window.addEventListener('locationchange', getMarkdown, false)
 		window.addEventListener('hashchange', getMarkdown, false)
-		function getMarkdown() {
+		function getMarkdown() { 
 			// console.log("url ", window.location.hash, window.location, window.location.url)
 			if (!!window.location.hash) {
 				url = window.location.hash.split("#")[1];
