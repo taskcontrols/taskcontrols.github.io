@@ -30,7 +30,7 @@
 					(data) => {
 						// console.log(data);
 						data.text().then((d) => {
-							document.getElementById('markdown-content').innerHTML = marked(d)
+							document.getElementById('markdown-content').innerHTML = marked.parse(d)
 						})
 					})
 				.catch(error => {
