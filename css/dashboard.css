@@ -1,4 +1,8 @@
 /* -- Top navigation -- */
+pre {
+	font: 0.825rem/1.5 Consolas,monaco,monospace;
+}
+
 #top-head {
 	z-index: 9;
 	top: 0;
