@@ -121,7 +121,7 @@
 #content {
 	margin-top: 52px;
 	padding: 30px 0 0 0;
-	background-color: #f7f7f7;
+	background-color: rgb(252, 252, 252);
 	margin-left: 0;
 	transition: margin 0.2s cubic-bezier(.4,0,.2,1);
 }
